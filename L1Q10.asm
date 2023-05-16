@@ -5,7 +5,7 @@
 ;	Criado por: Pedro Figueiredo.
 ;
 
-		include <p16f887.inc>		;cabeÁalho
+		include <p16f887.inc>		;cabe√ßalho
 		__config	_CONFIG1,	0X2FF4	;Configuration ou fuse bits
 		__config	_CONFIG2,	0x3FFF	;configuration bits ou fuse bits
 
@@ -17,14 +17,14 @@
 		
 		org			0x000				;vetor de resete
 		GOTO		SETUP
-		org			0x004				;vetor de interrupÁ„o
-		NOP								;n„o faz nada
+		org			0x004				;vetor de interrup√ß√£o
+		NOP								;n√£o faz nada
 		RETFIE
 
 SETUP:
 		BCF			STATUS, RP1			;SELECIONA BANK 01
 		BSF			STATUS,	RP0
-		BCF			TRISA, TRISA0		;CONFIGURA PORTA COMO SAÕDA DIGITAL
+		BCF			TRISA, TRISA0			;CONFIGURA PORTA COMO SA√çDA DIGITAL
 		BSF			STATUS, RP0
 		BSF			STATUS, RP1
 		BCF			ANSEL,	ANS0
@@ -35,9 +35,9 @@ SETUP:
 
 
 LOOP:
-		BSF			PORTA, RA0			;seta RD0
+		BSF			PORTA, RA0			;seta RA0
 		CALL		FDELAY1S
-		BCF			PORTA, RA0			;reseta RD0
+		BCF			PORTA, RA0			;reseta RA0
 		CALL		FDELAY1S
 		GOTO 		LOOP				;pula para linha LOOP
 
